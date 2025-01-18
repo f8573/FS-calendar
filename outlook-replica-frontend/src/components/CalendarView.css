@@ -1,0 +1,79 @@
+/* CalendarView.css */
+.calendar-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  table-layout: fixed;
+  flex: 1;
+  height: 100%;
+}
+
+.calendar-table th {
+  background-color: #eaeaea;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.calendar-table td {
+  border: 1px solid #ddd;
+  cursor: pointer;
+  position: relative; /* needed for absolutely positioned events */
+  padding: 0; 
+  vertical-align: top;
+  height: 80px; /* or 100px, whatever you prefer */
+}
+
+.calendar-table td:hover {
+  background-color: #f0f8ff;
+}
+
+.current-month {
+  color: #000;
+}
+
+.other-month {
+  color: #aaa;
+}
+
+.selected-day {
+  background-color: #ffecb3 !important;
+}
+
+.day-number {
+  margin: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* The container for events is absolutely positioned within each TD. */
+.day-cell-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Each event is absolutely positioned, so they can overlap cell boundaries. */
+.event-badge {
+  position: absolute;
+  background-color: #0078d4;
+  color: #fff;
+  font-size: 0.8rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 2px 4px;
+
+  /* Default corners: we'll override in JS if multi-day. */
+  border-radius: 4px;
+}
+
+/* Outline for the selected event */
+.selected-event {
+  outline: 2px solid white;
+}
